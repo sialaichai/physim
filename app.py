@@ -42,14 +42,20 @@ current_data = ANIMATIONS[selected_topic][selected_script]
 
 st.title(selected_script)
 st.caption(f"Category: {selected_topic}")
+#col1, col2 = st.columns([1, 3])
+#with col1:
+st.markdown("### Guide")
+st.info(current_data["description"])
+st.markdown("---")
+st.write("Tip: Use the search box in the sidebar to find animations across all topics.")
+#with col2:
+components.iframe(current_data["url"], height=600, scrolling=False)
 
-col1, col2 = st.columns([1, 3])
-
-with col1:
-    st.markdown("### Guide")
-    st.info(current_data["description"])
-    st.markdown("---")
-    st.write("Tip: Use the search box in the sidebar to find animations across all topics.")
-
-with col2:
-    components.iframe(current_data["url"], height=600, scrolling=False)
+#col1, col2 = st.columns([1, 3])
+#with col1:
+#    st.markdown("### Guide")
+#    st.info(current_data["description"])
+#    st.markdown("---")
+#    st.write("Tip: Use the search box in the sidebar to find animations across all topics.")
+#with col2:
+#    components.iframe(current_data["url"], height=600, scrolling=False)
