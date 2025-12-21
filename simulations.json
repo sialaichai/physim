@@ -13,7 +13,7 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Circular-VerticalCircularMotion1",
             "description": "Observe tension variations at the top and bottom of the vertical path.",
             "image":"",
-            "questions":[""]
+            "questions":[]
         }
     },
     "Projectile Motion": {
@@ -21,13 +21,13 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Kinematics/program/ProjectileGraphVariableHeight",
             "description": "Vary launch height and angle to see the trajectory.",
             "image":"",
-            "questions:[""]
+            "questions:[]
         },
         "Hunter & Monkey": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Kinematics/program/Hunter-monkey",
             "description": "Classic problem: Independence of horizontal and vertical motion.",
             "image;"",
-            "questions": [""]     
+            "questions": []     
         }
     }
 }
