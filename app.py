@@ -1,6 +1,30 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import json
+# Custom CSS to remove padding and margins
+st.markdown("""
+    <style>
+        /* Remove padding from the main container */
+        .block-container {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+            padding-left: 0rem;
+            padding-right: 0rem;
+        }
+
+        /* Optional: Hide the header bar at the top */
+        header {visibility: hidden;}
+
+        /* Optional: Hide the footer "Made with Streamlit" */
+        footer {visibility: hidden;}
+        
+        /* Ensure the iframe fills the container width */
+        iframe {
+            width: 100%;
+            border: none;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
 st.set_page_config(page_title="Physics Simulations Hub", layout="wide")
 
