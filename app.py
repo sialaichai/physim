@@ -38,6 +38,11 @@ st.markdown("""
         [data-testid="stDecoration"] {
             display: none;
         }
+                /* Add this inside your <style> tag */
+        h1 {
+            font-size: 2rem !important; /* Adjust 2.5rem to whatever size you prefer */
+            padding-bottom: 0rem;         /* Optional: reduces gap below title */
+        }
     </style>
     """, unsafe_allow_html=True)
 
