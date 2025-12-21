@@ -11,7 +11,7 @@ st.markdown("""
     <style>
         /* 1. Remove padding from the main block-container */
         .block-container {
-            padding-top: 1rem; /* Added slight padding so title isn't cut off */
+            padding-top: 2rem; /* Added slight padding so title isn't cut off */
             padding-bottom: 0rem;
             padding-left: 1rem;
             padding-right: 1rem;
@@ -76,6 +76,8 @@ else:
     selected_script = st.sidebar.radio("Select Animation:", options=available_animations)
 
 # --- MAIN PANEL ---
+st.write("") # Dummy spacer
+st.write("") # Dummy spacer
 current_data = ANIMATIONS[selected_topic][selected_script]
 st.caption(f"Category: {selected_topic}")
 st.title(selected_script)
