@@ -2,7 +2,7 @@
     "Circular Motion": {
         "Conical Pendulum": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Circular-ConicalPendulum",
-            "description": "A conical pendulum rotates in a horizontal circle. Adjust the **velocity** to see the angle change. Red = Tension, Green = Weight."
+            "description": "A conical pendulum rotates in a horizontal circle. Adjust the **velocity** to see the angle change. Red = Tension, Green = Weight.",
             "image": "", 
             "questions": [
                 "What happens to the angle theta as velocity increases?",
@@ -26,7 +26,7 @@
         "Hunter & Monkey": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Kinematics/program/Hunter-monkey",
             "description": "Classic problem: Independence of horizontal and vertical motion.",
-            "image;"",
+            "image":"",
             "questions": []     
         }
     }
