@@ -3,20 +3,31 @@
         "Conical Pendulum": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Circular-ConicalPendulum",
             "description": "A conical pendulum rotates in a horizontal circle. Adjust the **velocity** to see the angle change. Red = Tension, Green = Weight."
+            "image": "", 
+            "questions": [
+                "What happens to the angle theta as velocity increases?",
+                "Derive the relationship between tension and angular velocity."
+            ]
         },
         "Vertical Circular Motion": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Circular-VerticalCircularMotion1",
             "description": "Observe tension variations at the top and bottom of the vertical path."
+            "image":"",
+            "questions":""
         }
     },
     "Projectile Motion": {
         "General Projectile": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Kinematics/program/ProjectileGraphVariableHeight",
             "description": "Vary launch height and angle to see the trajectory."
+            "image":"",
+            "questions:""
         },
         "Hunter & Monkey": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Kinematics/program/Hunter-monkey",
-            "description": "Classic problem: Independence of horizontal and vertical motion."
+            "description": "Classic problem: Independence of horizontal and vertical motion.",
+            "image;"",
+            "questions": ""     
         }
     }
 }
