@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulation Admin</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; background: #f4f4f4; }
+        
+        /* Login Overlay */
+        #loginOverlay { position: fixed; top:0; left:0; width:100%; height:100%; background: white; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-direction: column; }
+        
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .row { display: flex; gap: 20px; margin-bottom: 20px; }
+        .col { flex: 1; }
+        
+        input, textarea, select { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;}
+        textarea { height: 100px; }
+        
+        label { font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        
+        button { padding: 10px 20px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; }
+        button:hover { background: #0056b3; }
+        button.delete { background: #dc3545; }
+        button.success { background: #28a745; width: 100%; font-size: 1.1rem; }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="loginOverlay">
+        <h2>Admin Login</h2>
+        <input type="password" id="passwordInput" placeholder="Enter Password" style="width: 200px;">
+        <button onclick="checkPassword()">Login</button>
+        <p id="errorMsg" style="color:red; display:none;">Incorrect Password</p>
+    </div>
+
+    <div class="container hidden" id="adminPanel">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h1>🛠️ Simulation Manager</h1>
+            <a href="index.html" style="text-decoration:none;">← Back to App</a>
+        </div>
+        
+        <div class="row">
+            <div class="col" style="flex: 0 0 30%;">
+                <label>1. Select Topic</label>
+                <select id="topicSelect" size="5"></select>
+                
+                <label>2. Select Simulation</label>
+                <select id="simSelect" size="10"></select>
+
+                <div style="margin-top:10px; border-top:1px solid #eee; padding-top:10px;">
+                    <label>Create New:</label>
+                    <input type="text" id="newTopicName" placeholder="New Topic Name...">
+                    <button onclick="addTopic()" style="width:100%; margin-bottom:5px;">Add Topic</button>
+                    
+                    <input type="text" id="newSimName" placeholder="New Sim Name...">
+                    <button onclick="addSim()" style="width:100%;">Add Simulation</button>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="editorForm" class="hidden">
+                    <h3 id="editingTitle" style="margin-top:0;">Editing: ...</h3>
+                    
+                    <label>URL (GlowScript Link)</label>
+                    <input type="text" id="editUrl">
+
+                    <label>Description (Markdown supported)</label>
+                    <textarea id="editDesc"></textarea>
+
+                    <label>Image (Filename or URL)</label>
+                    <input type="text" id="editImage">
+
+                    <label>Questions (One per line)</label>
+                    <textarea id="editQuestions" placeholder="Question 1&#10;Question 2..."></textarea>
+
+                    <div style="display:flex; gap:10px; margin-top:10px;">
+                        <button onclick="saveChanges()">💾 Update Locally</button>
+                        <button onclick="deleteSim()" class="delete">🗑️ Delete Sim</button>
+                    </div>
+                </div>
+                <div id="welcomeMsg">Select a simulation on the left to edit.</div>
+            </div>
+        </div>
+
+        <hr>
+        
+        <div style="text-align: center; background: #e8f4f9; padding: 20px; border-radius: 8px;">
+            <h3>Step 3: Save & Publish</h3>
+            <p>Because this is a static site, we cannot save directly to the server.</p>
+            <button class="success" onclick="downloadJSON()">📥 Download updated simulations.json</button>
+            <p style="font-size:0.9rem; color: #666; margin-top:10px;">After downloading, drag and drop this file into your GitHub repository to publish changes.</p>
+        </div>
+    </div>
+
+    <script>
+        let animationsData = {};
+        let currentTopic = "";
+        let currentSim = "";
+
+        // --- PASSWORD LOGIC ---
+        // NOTE: This is NOT high security. Anyone can 'view source' to see the password.
+        // It is intended only to prevent students from accidentally stumbling onto this page.
+        function checkPassword() {
+            const pass = document.getElementById('passwordInput').value;
+            if (pass === "physics123") { // CHANGE THIS PASSWORD
+                document.getElementById('loginOverlay').style.display = 'none';
+                document.getElementById('adminPanel').classList.remove('hidden');
+                loadData();
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        }
+
+        // --- DATA LOADING ---
+        function loadData() {
+            fetch('simulations.json')
+                .then(r => r.json())
+                .then(data => {
+                    animationsData = data;
+                    renderTopics();
+                });
+        }
+
+        // --- RENDERING LISTS ---
+        function renderTopics() {
+            const select = document.getElementById('topicSelect');
+            select.innerHTML = "";
+            Object.keys(animationsData).forEach(topic => {
+                const opt = document.createElement('option');
+                opt.value = topic;
+                opt.text = topic;
+                select.add(opt);
+            });
+            // Reset Sim list
+            document.getElementById('simSelect').innerHTML = "";
+        }
+
+        document.getElementById('topicSelect').addEventListener('change', (e) => {
+            currentTopic = e.target.value;
+            renderSims();
+        });
+
+        function renderSims() {
+            const select = document.getElementById('simSelect');
+            select.innerHTML = "";
+            if (!animationsData[currentTopic]) return;
+
+            Object.keys(animationsData[currentTopic]).forEach(sim => {
+                const opt = document.createElement('option');
+                opt.value = sim;
+                opt.text = sim;
+                select.add(opt);
+            });
+        }
+
+        document.getElementById('simSelect').addEventListener('change', (e) => {
+            currentSim = e.target.value;
+            loadForm();
+        });
+
+        // --- FORM HANDLING ---
+        function loadForm() {
+            if(!currentTopic || !currentSim) return;
+            
+            const data = animationsData[currentTopic][currentSim];
+            document.getElementById('welcomeMsg').classList.add('hidden');
+            document.getElementById('editorForm').classList.remove('hidden');
+            
+            document.getElementById('editingTitle').innerText = `Editing: ${currentSim}`;
+            document.getElementById('editUrl').value = data.url || "";
+            document.getElementById('editDesc').value = data.description || "";
+            document.getElementById('editImage').value = data.image || "";
+            
+            // Join questions with newline for textarea
+            const qList = data.questions || [];
+            document.getElementById('editQuestions').value = qList.join('\n');
+        }
+
+        function saveChanges() {
+            if(!currentTopic || !currentSim) return;
+
+            // Update the global object
+            animationsData[currentTopic][currentSim] = {
+                url: document.getElementById('editUrl').value,
+                description: document.getElementById('editDesc').value,
+                image: document.getElementById('editImage').value,
+                // Split lines back into array
+                questions: document.getElementById('editQuestions').value.split('\n').filter(line => line.trim() !== "")
+            };
+            
+            alert("Changes updated in memory! Don't forget to download.");
+        }
+
+        // --- ADDING NEW ITEMS ---
+        function addTopic() {
+            const name = document.getElementById('newTopicName').value;
+            if (name && !animationsData[name]) {
+                animationsData[name] = {};
+                renderTopics();
+                document.getElementById('newTopicName').value = "";
+            }
+        }
+
+        function addSim() {
+            const name = document.getElementById('newSimName').value;
+            if (currentTopic && name && !animationsData[currentTopic][name]) {
+                // Initialize empty
+                animationsData[currentTopic][name] = { url: "", description: "", image: "", questions: [] };
+                renderSims();
+                document.getElementById('newSimName').value = "";
+            } else if (!currentTopic) {
+                alert("Please select a topic first.");
+            }
+        }
+
+        function deleteSim() {
+            if(confirm(`Are you sure you want to delete ${currentSim}?`)) {
+                delete animationsData[currentTopic][currentSim];
+                renderSims();
+                document.getElementById('editorForm').classList.add('hidden');
+            }
+        }
+
+        // --- EXPORT ---
+        function downloadJSON() {
+            const dataStr = JSON.stringify(animationsData, null, 4);
+            const blob = new Blob([dataStr], {type: "application/json"});
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "simulations.json";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
