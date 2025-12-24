@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Simulations Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Find Simulation</h2>
+        <input type="text" id="searchInput" placeholder="🔍 Search by name...">
+        <div id="navMenu">
+            </div>
+    </div>
+
+    <div class="main-content">
+        <p class="category-tag" id="categoryTag">Category: Loading...</p>
+        <h1 id="simTitle">Welcome</h1>
+        
+        <h3>Guide</h3>
+        <div class="info-box" id="simDescription">
+            Select a simulation from the sidebar to begin.
+        </div>
+
+        <div id="imageContainer">
+            </div>
+
+        <div class="iframe-container">
+            <iframe id="simFrame" src="" allowfullscreen></iframe>
+        </div>
+
+        <div id="questionsContainer" style="display:none;">
+            <h3>📝 Discussion Questions</h3>
+            <div id="questionsList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
