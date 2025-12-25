@@ -3,7 +3,7 @@
         "Conical Pendulum": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Circular-ConicalPendulum",
             "description": "A conical pendulum rotates in a horizontal circle. Adjust the **velocity** to see the angle change. Red = Tension, Green = Weight.",
-            "image": "", 
+            "image": "",
             "questions": [
                 "What happens to the angle theta as velocity increases?",
                 "Derive the relationship between tension and angular velocity."
@@ -12,22 +12,30 @@
         "Vertical Circular Motion": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Circular-VerticalCircularMotion1",
             "description": "Observe tension variations at the top and bottom of the vertical path.",
-            "image":"",
-            "questions":[]
+            "image": "",
+            "questions": ["Why is the tension minimum at the top", "Which position is the string likely to break?"]
         }
     },
     "Projectile Motion": {
         "General Projectile": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Kinematics/program/ProjectileGraphVariableHeight",
             "description": "Vary launch height and angle to see the trajectory.",
-            "image":"",
-            "questions":[]
+            "image": "",
+            "questions": ["Can the horizontal velocity become zero in the presence of air resistance?", "Why is the time taken to fall longer than the time to rise in the presence of air resistance?"]
         },
         "Hunter & Monkey": {
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Kinematics/program/Hunter-monkey",
             "description": "Classic problem: Independence of horizontal and vertical motion.",
-            "image":"",
-            "questions": []     
+            "image": "",
+            "questions": ["What happens if there is no gravity?", "Will the bullet still hit the monkey if the experiment is repeated on the Moon?"]
+        }
+    },
+    "Magnetism": {
+        "Electric Motor": {
+            "url": "https://effectuall.github.io/Simulations/Magnetism_Force_on_a_Current_Carrying_Conductor",
+            "description": "Basic Operation of a motor",
+            "image": "",
+            "questions": []
         }
     }
 }
