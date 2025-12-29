@@ -62,10 +62,10 @@
             ]
         },
         "Wall of death": {
-            "url": "",
+            "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/VerticalWall",
             "description": "ANimation shows an object moving in horizontal circular motion on a vertical wall",
             "image": "",
-            "youtube": "",
+            "youtube": "https://www.youtube.com/watch?v=fLgm4Rnj6kc",
             "questions": [
                 "Q1 If the wall has no friction, is it possible to move in a horizontal circular motion.",
                 "Q2 What happens to the angle of the object (e.g. motorcycle) if the speed is higher?"
