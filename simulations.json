@@ -4,6 +4,7 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Circular-ConicalPendulum",
             "description": "A conical pendulum rotates in a horizontal circle. Adjust the **velocity** to see the angle change. Red = Tension, Green = Weight.",
             "image": "",
+            "youtube": "", 
             "questions": [
                 "What happens to the angle theta as velocity increases?",
                 "Derive the relationship between tension and angular velocity."
@@ -13,6 +14,7 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Circular-VerticalCircularMotion1",
             "description": "Observe tension variations at the top and bottom of the vertical path.",
             "image": "",
+            "youtube": "",
             "questions": [
                 "Why is the tension minimum at the top",
                 "Which position is the string likely to break?"
@@ -22,6 +24,7 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/BankedTrack",
             "description": "Animation shows a banked track with components of normal reaction providing centripetal force",
             "image": "",
+            "youtube": "",
             "questions": [
                 "Q1. How does speed affect the angle of banking?",
                 "Q2. How does friction contribute to centripetal force?",
@@ -32,6 +35,7 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/PlaygroundRide",
             "description": "Animation shows the angle of inclination from the vertical at different distances from the centre of rotation.",
             "image": "",
+            "youtube": "",
             "questions": [
                 "Q1. Do all the rides have the same angular velocity?",
                 "Q2. Do all the rides have the same linear speed?",
@@ -42,6 +46,7 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Circular-FerrisWheelReaction",
             "description": "Animations shows the forces acting on the object on the seat of a ferris wheel.",
             "image": "",
+            "youtube": "",
             "questions": [
                 "Q1 Can the friction be zero?",
                 "Q2 At what position is the normal reaction maximum?"
@@ -51,6 +56,7 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Circular/program/Glider",
             "description": "Animation sows a glider in horizontal circular motion",
             "image": "",
+            "youtube": "",
             "questions": [
                 "Q1 What happens to the angle of inclination of the glider wings if the speed is higher?"
             ]
@@ -59,6 +65,7 @@
             "url": "",
             "description": "ANimation shows an object moving in horizontal circular motion on a vertical wall",
             "image": "",
+            "youtube": "",
             "questions": [
                 "Q1 If the wall has no friction, is it possible to move in a horizontal circular motion.",
                 "Q2 What happens to the angle of the object (e.g. motorcycle) if the speed is higher?"
@@ -70,6 +77,7 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Kinematics/program/ProjectileGraphVariableHeight",
             "description": "Vary launch height and angle to see the trajectory.",
             "image": "",
+            "youtube": "",
             "questions": [
                 "Can the horizontal velocity become zero in the presence of air resistance?",
                 "Why is the time taken to fall longer than the time to rise in the presence of air resistance?"
@@ -79,6 +87,7 @@
             "url": "https://www.glowscript.org/#/user/sialaichai/folder/Kinematics/program/Hunter-monkey",
             "description": "Classic problem: Independence of horizontal and vertical motion.",
             "image": "",
+            "youtube": "",
             "questions": [
                 "What happens if there is no gravity?",
                 "Will the bullet still hit the monkey if the experiment is repeated on the Moon?"
@@ -90,6 +99,7 @@
             "url": "https://effectuall.github.io/Simulations/Magnetism_Force_on_a_Current_Carrying_Conductor",
             "description": "Basic Operation of a motor",
             "image": "",
+            "youtube": "",
             "questions": []
         }
     }
